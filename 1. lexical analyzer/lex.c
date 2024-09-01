@@ -115,7 +115,7 @@ int main()
 			l++;
 		}
 	}
-	printf("total no of tokens:%7d",l);
+	printf("total no of tokens:%7d",t-1);
 	fclose(input);
 	return 0; 
 }
