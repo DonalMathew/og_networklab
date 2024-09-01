@@ -1,3 +1,10 @@
+/*
+the grammar considered here: 
+        E –> 2E2 
+        E –> 3E3 
+        E –> 4 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -106,3 +113,51 @@ int main()
     
     return 0;
 }
+
+/*-----------------------------------------------
+
+INPUT-1:
+
+GRAMMAR is -
+E->2E2 
+E->3E3 
+E->4
+
+ input here:
+23432
+
+OUTPUT-1:
+
+stack 	 input 	 action
+$	23432$	SHIFT
+$2	 3432$	SHIFT
+$23	  432$	SHIFT
+$234	   32$	REDUCE TO E -> 4
+$23E	   32$	SHIFT
+$23E3	    2$	REDUCE TO E -> 3E3
+$2E	    2$	SHIFT
+$2E2	     $	REDUCE TO E -> 2E2
+$E	     $	Accept
+
+------------------------------------------------------
+INPUT-2:
+
+GRAMMAR is -
+E->2E2 
+E->3E3 
+E->4
+
+ input here:
+2321
+
+OUTPUT-2:
+
+stack 	 input 	 action
+$	2321$	SHIFT
+$2	 321$	SHIFT
+$23	  21$	SHIFT
+$232	   1$	SHIFT
+$2321	    $	Reject
+
+---------------------------------------------------------
+*/
