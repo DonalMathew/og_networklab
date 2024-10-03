@@ -1,3 +1,7 @@
+/*
+make sure that there is no space after the last charater, or else the last line will repeat once more in the output
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -15,8 +19,12 @@ while(!feof(fp))
     i=0;
     fscanf(fp,"%s",buffer);
     
+    if(buffer[i]=='/'){continue;} //to identify comments
+
     while(buffer[i]!='\0')
     {
+        if(buffer[i]=='/'){break;} //to identify comments
+
         if(buffer[i]=='#'||buffer[i]=='<'||buffer[i]=='='||buffer[i]=='>'||buffer[i]=='('||buffer[i]==')'||buffer[i]=='{'||buffer[i]=='}'||buffer[i]=='"'||buffer[i]==';'||buffer[i]=='+')
         {
             fprintf(fp1," %c ",buffer[i]);
