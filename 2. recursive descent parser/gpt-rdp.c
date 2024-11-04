@@ -1,3 +1,14 @@
+/*
+This  algorithm using Recursive procedures to implement the following Grammar.
+
+E → TE′
+E′ → +TE′
+T → FT′
+T′ →∗ FT′|ε
+F → (E)|id
+
+*/
+
 #include<stdio.h>
 #include<string.h>
 
